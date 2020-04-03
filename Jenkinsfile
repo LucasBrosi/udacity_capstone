@@ -4,7 +4,7 @@ pipeline {
     stage('Linting') {
       steps {
         sh 'echo "start to lint"'
-        pylint app.py
+        sh 'pylint app.py'
         sh 'echo "Linting complete"'
       }
     }
