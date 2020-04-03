@@ -5,7 +5,7 @@ FROM python:3.7.3-stretch
 WORKDIR /newapp
 ## Step 2:
 # Copy source code to working directory
-COPY . new-app.py /newapp/
+COPY . app.py /newapp/
 ## Step 3:
 # Install packages from requirements.txt
 # hadolint ignore=DL3013
@@ -16,4 +16,4 @@ RUN pip install --upgrade pip &&\
 EXPOSE 80
 ## Step 5:
 # Run app.py at container launch
-CMD ["python", "new-app.py"]
+CMD ["python", "app.py"]
