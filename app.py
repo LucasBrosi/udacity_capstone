@@ -1,9 +1,12 @@
+"""This is an app that displays my name"""
+
 from flask import Flask
 app = Flask(__name__)
 
 
 @app.route("/")
 def home():
+    """relevant code goes here"""
     html = f"<h3>Hello, my name is Lucas</h3>"
     return html.format(format)
 
