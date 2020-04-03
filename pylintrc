@@ -1,0 +1,2 @@
+#configuration file for pylint
+load-plugins=Click,Flask,itsdangerous,Jinja2,MarkupSafe,pythondateutil,pytz,scipy,six,Werkzeug
