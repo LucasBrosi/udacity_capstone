@@ -22,11 +22,11 @@ pipeline {
     stage('Push image') {
       steps {
         sh 'echo "Start pushing image"'
-        sh '''
-            docker.withRegistry('',docker_jenkins ) {
-              lucasbro/udacityapp:latest.push()
-              }
-           '''
+        sh''' 
+          withCredentials([usernamePassword(credentialsId: 'hello-kb', passwordVariable: 'pass', usernameVariable: 'user')]) {
+            docker login -u $user -p $pass
+        }
+      '''
       }
     }
 
