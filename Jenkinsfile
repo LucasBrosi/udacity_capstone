@@ -12,8 +12,8 @@ pipeline {
     stage('Build image') {
       steps {
         sh 'echo "building image"'
-        sh 'docker build -t udacityapp .'
-        sh 'docker images list'
+        sh 'sudo docker build -t udacityapp .'
+        sh 'sudo docker images list'
         sh 'echo "docker image successfully built"'
       }
     }
