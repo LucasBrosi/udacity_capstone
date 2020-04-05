@@ -9,6 +9,27 @@ pipeline {
         sh 'echo "Linting complete"'
       }
     }
+    stage('Build image') {
+      steps {
+        sh 'echo "building image"'
+      }
+    }
+  stage('Push image') {
+      steps {
+        sh 'echo "Pushing image"'
+      }
+    }
+  stage('set current kubectl context') {
+      steps {
+        sh 'echo "setting kubectl context"'
 
+      }
+    }
+  stage('Deploy Container') {
+      steps {
+        sh 'echo "deploying"'
+        
+      }
+    }      
   }
 }
