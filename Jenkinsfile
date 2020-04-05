@@ -20,6 +20,7 @@ pipeline {
   stage('Push image') {
       steps {
         sh 'echo "Sart pushing image"'
+
       }
     }
   stage('set current kubectl context') {
