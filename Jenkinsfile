@@ -3,42 +3,37 @@ pipeline {
   stages {
     stage('Linting') {
       steps {
-        echo "start to lint"
-        echo "next step will be linting"
-        tidy -e *.html
-        echo "Linting complete"
+        sh 'echo "start to lint"'
+        sh 'echo "next step will be linting"'
+        sh 'tidy -e *.html'
+        sh 'echo "Linting complete"'
       }
     }
-
     stage('Build image') {
       steps {
-        echo "building image"
-        docker build -t udacityapp .
-        docker images list
-        echo "docker image successfully built"
+        sh 'echo "building image"'
+        sh 'docker build -t udacityapp .'
+        sh 'docker images list'
+        sh 'echo "docker image successfully built"'
       }
     }
-
-    stage('Push image') {
+  stage('Push image') {
       steps {
-        echo "Start pushing image"
+        sh 'echo "Start pushing image"'
                   
       }
     }
-
-    stage('set current kubectl context') {
+  stage('set current kubectl context') {
       steps {
-        echo "setting kubectl context"
+        sh 'echo "setting kubectl context"'
 
       }
     }
-
-    stage('Deploy Container') {
+  stage('Deploy Container') {
       steps {
-        echo "deploying"
+        sh 'echo "deploying"'
         
       }
-    }
-
+    }      
   }
 }
