@@ -22,7 +22,11 @@ pipeline {
     stage('Push image') {
       steps {
         sh 'echo "Start pushing image"'
-        sh 'cat docker_jenkins'
+        sh '''
+            docker.withRegistry('',docker_jenkins ) {
+              lucasbro/udacityapp:latest.push()
+              }
+           '''
       }
     }
 
