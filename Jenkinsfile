@@ -12,11 +12,14 @@ pipeline {
     stage('Build image') {
       steps {
         sh 'echo "building image"'
+        sh 'docker build -t udacityapp .'
+        sh 'docker images list'
+        sh 'echo "docker image successfully built"'
       }
     }
   stage('Push image') {
       steps {
-        sh 'echo "Pushing image"'
+        sh 'echo "Sart pushing image"'
       }
     }
   stage('set current kubectl context') {
