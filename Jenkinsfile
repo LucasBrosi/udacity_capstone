@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh 'echo "start to lint"'
         sh 'echo "next step will be linting"'
-        sh 'tidy -q -e *.html'
+        sh 'tidy *.html'
         sh 'echo "Linting complete"'
       }
     }
