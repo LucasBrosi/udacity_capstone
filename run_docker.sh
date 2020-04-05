@@ -10,4 +10,4 @@ docker build -t capstoneapp .
 docker image ls
 # Step 3: 
 # Run flask app
-docker container run --name web07 -p 8000:80 capstoneapp
+docker container run -p 8000:80 capstoneapp
