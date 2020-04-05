@@ -15,7 +15,7 @@ pipeline {
         echo "building image"
         docker build -t udacityapp .
         docker images list
-        echo "docker image successfully built
+        echo "docker image successfully built"
       }
     }
 
