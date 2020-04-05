@@ -9,6 +9,7 @@ pipeline {
         sh 'echo "Linting complete"'
       }
     }
+
     stage('Build image') {
       steps {
         sh 'echo "building image"'
@@ -17,23 +18,26 @@ pipeline {
         sh 'echo "docker image successfully built"'
       }
     }
-  stage('Push image') {
+
+    stage('Push image') {
       steps {
         sh 'echo "Start pushing image"'
-                  
+        sh '''docker.withRegistry(\'https://registry.hub.docker.com\', \'dockerjenkins\')
+{udacityapp:latest.push}'''
       }
     }
-  stage('set current kubectl context') {
+
+    stage('set current kubectl context') {
       steps {
         sh 'echo "setting kubectl context"'
-
       }
     }
-  stage('Deploy Container') {
+
+    stage('Deploy Container') {
       steps {
         sh 'echo "deploying"'
-        
       }
-    }      
+    }
+
   }
 }
