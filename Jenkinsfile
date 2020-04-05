@@ -20,7 +20,9 @@ pipeline {
   stage('Push image') {
       steps {
         sh 'echo "Sart pushing image"'
-
+        sh 'docker.withRegistry('https://registry.hub.docker.com', 'docker_jenkins' {
+          udacityapp:latest.Push
+        }'
       }
     }
   stage('set current kubectl context') {
