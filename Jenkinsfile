@@ -19,9 +19,7 @@ pipeline {
     }
   stage('Push image') {
       steps {
-        sh 'echo "Sart pushing image"'
-        sh 'docker.withRegistry ('', 'docker_jenkins' {
-        udacityapp:latest.push}' 
+        sh 'echo "Start pushing image"'
                   }
       }
     }
