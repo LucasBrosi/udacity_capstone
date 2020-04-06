@@ -22,11 +22,10 @@ pipeline {
     stage('Push image') {
       steps {
         sh 'echo "Start pushing image"'
-        sh''' 
-          withCredentials([usernamePassword(credentialsId: 'hello-kb', passwordVariable: 'pass', usernameVariable: 'user')]) {
-            docker login -u $user -p $pass
+       withCredentials([usernamePassword(credentialsId: 'docker_jenkins', passwordVariable: 'passw', usernameVariable: 'usern')]) {
+        docker login -u usern -p passw
         }
-      '''
+        sh 'echo "login ok"'
       }
     }
 
