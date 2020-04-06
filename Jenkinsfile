@@ -21,12 +21,16 @@ pipeline {
 
     stage('Push image') {
       steps {
-        sh 'echo "Start pushing image"'
+        sh 'echo "loging into docker hub"'
         withCredentials([usernamePassword(credentialsId: 'docker_jenkins', passwordVariable: 'passw', usernameVariable: 'usern')]) {
         sh 'docker login -u $usern -p $passw'
         }
         sh 'echo "login ok"'
-        sh 'echo "useless comment"'
+        sh 'echo "tagging image"'
+        sh 'docker tag udacityapp:latest docker.io/lucasbro/udacityapp:latest'
+        sh 'echo "start pushing image"'
+        sh 'docker push docker.io/lucasbro/udacityapp:latest'
+        sh 'echo "pushed image successfully"'
       }
     }
 
