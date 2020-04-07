@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: udacityapp-blue
+spec:
+  replicas: 1
+  selector:
+    app: udacityapp-blue
+  template:
+    metadata:
+      name: udacityapp-blue
+      labels:
+        app: udacityapp-blue
+    spec:
+      containers:
+      - name: udacityapp-blue
+        image: lucasbro/udacityapp
+        ports:
+        - containerPort: 80

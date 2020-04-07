@@ -1,9 +1,9 @@
 ##creating a kubernetes cluster on EKS
 eksctl create cluster \
---name clustercapstone \
+--name udacitydevopscapstone \
 --region us-east-2 \
 --nodegroup-name standard-workers \
---node-type t2.micro \
+--node-type t3.medium \
 --nodes 2 \
 --nodes-min 1 \
 --nodes-max 5 \
