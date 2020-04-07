@@ -8,7 +8,7 @@
        }
     },
     "spec":{
-       "replicas":1,
+       "replicas":0,
        "selector":{
           "app":"blue"
        },
@@ -22,7 +22,7 @@
              "containers":[
                 {
                    "name":"blue",
-                   "image":"lucasbro/udacityappblue:latest",
+                   "image":"lucasbro/udacityappblue",
                    "ports":[
                       {
                          "name":"http-server",

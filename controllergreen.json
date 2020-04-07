@@ -22,7 +22,7 @@
              "containers":[
                 {
                    "name":"green",
-                   "image":"lucasbro/udacityapp:latest",
+                   "image":"lucasbro/udacityappgreen:latest",
                    "ports":[
                       {
                          "name":"http-server",
