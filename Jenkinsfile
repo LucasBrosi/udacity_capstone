@@ -34,7 +34,6 @@ pipeline {
             sh 'echo "setting kubectl context and deploying blue version"'
           withAWS(region:'us-east-2', credentials:'AWS_Jenkins') {
             sh 'kubectl config view'
-            sh 
             sh 'kubectl apply -f ./initcontrollerblue.json'
             sleep(time:5,unit:"SECONDS")
             sh 'kubectl apply -f ./controllerblue.json'
