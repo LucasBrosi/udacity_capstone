@@ -4,7 +4,6 @@ pipeline {
     stage('Linting') {
       steps {
         sh 'echo "start to lint"'
-        sh 'echo "next step will be linting"'
         sh 'tidy -e *.html'
         sh 'echo "Linting complete"'
       }
@@ -33,6 +32,7 @@ pipeline {
             sh 'echo "setting kubectl context and deploying blue version"'
           withAWS(region:'us-east-2', credentials:'AWS_Jenkins') {
             sh 'kubectl config view'
+            sh 'kubectl use-context arn:aws:eks:us-east-2:909174052137:cluster/udacitydevopscapstone'
             sh 'kubectl apply -f ./initcontrollerblue.json'
             sleep(time:5,unit:"SECONDS")
             sh 'kubectl apply -f ./controllerblue.json'
