@@ -13,7 +13,7 @@ pipeline {
     stage('Build and push blue image') {
       steps {
         sh 'echo "building image"'
-        sh 'docker build -t udacityappblue .'
+        sh 'docker build --no-cache -t udacityappblue .'
         sh 'docker images list'
         sh 'echo "docker image successfully built"'
         sh 'echo "loging into docker hub"'
@@ -42,7 +42,7 @@ pipeline {
         sh 'echo "preparing LBTestingEndpoint"'
         sh 'kubectl apply -f ./lbtestingendpoint.json'
         sleep(time:10,unit:"SECONDS")
-        sh kubectl get svc
+        sh 'kubectl get svc'
         input "Is the new blue version running properly?"
       }
     }
@@ -56,7 +56,7 @@ pipeline {
     stage('Build and push green version') {
       steps {
         sh 'echo "building green image"'
-        sh 'docker build -t udacityappgreen .'
+        sh 'docker build --no-cache -t udacityappgreen .'
         sh 'docker images list'
         sh 'echo "docker image successfully built"'
         sh 'echo "loging into docker hub"'
