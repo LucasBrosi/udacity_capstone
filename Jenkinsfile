@@ -33,6 +33,7 @@ pipeline {
           withAWS(region:'us-east-2', credentials:'AWS_Jenkins') {
             sh 'echo "setting kubectl context"'
             sh 'kubectl config view'
+            sh 'aws eks --region us-east-2 update-kubeconfig --name udacitydevopscapstone'
             sh 'kubectl config use-context arn:aws:eks:us-east-2:909174052137:cluster/udacitydevopscapstone'
             sh 'kubectl apply -f ./initcontrollerblue.json'
             sleep(time:5,unit:"SECONDS")
