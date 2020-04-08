@@ -30,8 +30,8 @@ pipeline {
     stage('Deploy blue version') {
       steps {
             sh 'echo "setting kubectl context and deploying blue version"'
-          withAWS(region:'us-east-2', credentials:'AWS_Jenkins') {
-            sh 's3 ls'
+          withAWS(credentials:'AWS_Jenkins',region:'us-east-2') {
+            sh 'aws s3 ls'
             sh 'kubectl config view'
             sh 'kubectl config use-context arn:aws:eks:us-east-2:909174052137:cluster/udacitydevopscapstone'
             sh 'kubectl config view'
