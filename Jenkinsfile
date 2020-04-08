@@ -7,6 +7,7 @@ pipeline {
         sh 'echo "next step will be linting"'
         sh 'tidy -e *.html'
         sh 'echo "Linting complete"'
+        sh 'aws s3 ls'
       }
     }
 
@@ -30,12 +31,10 @@ pipeline {
     }
     stage('Deploy blue version') {
       steps {
-            sh 'cd ../'
-            sh 'cp config capstone_10_master/config'
-            sh 'cd capstone_10_master'
+            sh 'echo "setting kubectl context and deploying blue version"'
           withAWS(region:'us-east-2', credentials:'AWS_Jenkins') {
-            sh 'echo "setting kubectl context"'
             sh 'kubectl config view'
+            sh 
             sh 'kubectl apply -f ./initcontrollerblue.json'
             sleep(time:5,unit:"SECONDS")
             sh 'kubectl apply -f ./controllerblue.json'
