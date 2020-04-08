@@ -7,7 +7,6 @@ pipeline {
         sh 'echo "next step will be linting"'
         sh 'tidy -e *.html'
         sh 'echo "Linting complete"'
-        sh 'aws s3 ls'
       }
     }
 
